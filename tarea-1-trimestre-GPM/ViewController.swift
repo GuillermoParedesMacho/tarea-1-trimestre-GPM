@@ -8,6 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    //variables de juego
+    var mazoI = [Int] ();
+    var mazoD = [Int] ();
+    var numActual = 10;
 
     //indicadores pantalla
     @IBOutlet weak var act_num_lb: UILabel!
@@ -27,14 +32,29 @@ class ViewController: UIViewController {
     //inicio app
     override func viewDidLoad() {
         super.viewDidLoad()
-        var x = creabarajas().count;
-        var snumbre = x as NSNumber;
-        right_cards_lb.text = snumbre.stringValue;
+        
+        creamazos();
+        updateView();
         
     }
 
     //funciones aplicacion
     //funciones de inicio
+    func creamazos(){
+        var baraja = creabarajas();
+        while baraja.count > 0{
+            var max = baraja.count - 1;
+            var rnd = Int.random(in: 0...max);
+            if baraja.count % 2 == 0 {
+                mazoI.append(baraja[rnd]);
+            }
+            else{
+                mazoD.append(baraja[rnd]);
+            }
+            baraja.remove(at: rnd);
+        }
+    }
+    
     func creabarajas () -> [Int]{
         var baraja = [Int] ();
         
@@ -79,6 +99,26 @@ class ViewController: UIViewController {
     }
     
     //funciones de juego
+    
+    func updateView (){
+        act_num_lb.text = numToString(num: numActual);
+        left_num_lb.text = numToString(num: mazoI[0]);
+        left_cards_lb.text = numToString(num: mazoI.count);
+        right_num_lb.text = numToString(num: mazoD[0]);
+        right_cards_lb.text = numToString(num: mazoD.count);
+    }
+    
+    //otras funciones
+    func numToString (num: Int) -> String{
+        var sNumber = num as NSNumber;
+        return sNumber.stringValue;
+    }
 
 }
-
+/*
+ @IBOutlet weak var act_num_lb: UILabel!
+ @IBOutlet weak var left_num_lb: UILabel!
+ @IBOutlet weak var left_cards_lb: UILabel!
+ @IBOutlet weak var right_num_lb: UILabel!
+ @IBOutlet weak var right_cards_lb
+ */

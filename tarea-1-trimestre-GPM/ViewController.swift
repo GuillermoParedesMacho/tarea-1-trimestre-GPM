@@ -23,14 +23,18 @@ class ViewController: UIViewController {
     
     //botones
     @IBAction func left_num_bt(_ sender: UIButton) {
-        numActual += mazoI[0];
-        mazoI.remove(at: 0);
-        updateView();
+        if mazoI.count > 0{
+            numActual += mazoI[0];
+            mazoI.remove(at: 0);
+            gameInteraction();
+        }
     }
     @IBAction func right_num_bt(_ sender: UIButton) {
-        numActual += mazoD[0];
-        mazoD.remove(at: 0);
-        updateView();
+        if mazoD.count > 0{
+            numActual += mazoD[0];
+            mazoD.remove(at: 0);
+            gameInteraction();
+        }
     }
     
     //inicio app
@@ -104,6 +108,16 @@ class ViewController: UIViewController {
     
     //funciones de juego
     
+    func gameInteraction(){
+        updateView ();
+        if numActual > 21 || numActual < 0{
+            //condicion derrota
+        }
+        else if mazoD.count + mazoI.count == 0{
+            //condicion victoria
+        }
+    }
+    
     func updateView (){
         act_num_lb.text = numToString(num: numActual);
         if mazoI.count != 0{
@@ -129,10 +143,3 @@ class ViewController: UIViewController {
     }
 
 }
-/*
- @IBOutlet weak var act_num_lb: UILabel!
- @IBOutlet weak var left_num_lb: UILabel!
- @IBOutlet weak var left_cards_lb: UILabel!
- @IBOutlet weak var right_num_lb: UILabel!
- @IBOutlet weak var right_cards_lb
- */

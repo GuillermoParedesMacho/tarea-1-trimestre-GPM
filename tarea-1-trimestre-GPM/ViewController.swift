@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     //variables de juego
     var mazoI = [Int] ();
     var mazoD = [Int] ();
-    var numActual = 10;
+    var numActual = Int();
 
     //indicadores pantalla
     @IBOutlet weak var act_num_lb: UILabel!
@@ -23,10 +23,14 @@ class ViewController: UIViewController {
     
     //botones
     @IBAction func left_num_bt(_ sender: UIButton) {
-        act_num_lb.text = "left";
+        numActual += mazoI[0];
+        mazoI.remove(at: 0);
+        updateView();
     }
     @IBAction func right_num_bt(_ sender: UIButton) {
-        act_num_lb.text = "right";
+        numActual += mazoD[0];
+        mazoD.remove(at: 0);
+        updateView();
     }
     
     //inicio app
@@ -34,8 +38,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         creamazos();
+        numActual = 10;
         updateView();
-        
     }
 
     //funciones aplicacion
@@ -85,9 +89,9 @@ class ViewController: UIViewController {
                     media = media + cartas[y];
                     y = y+1;
                 }
-                media = media/cartas.count;
+                //media = media/cartas.count;
             }
-            if media < 10{
+            if media < 0{
                 cartas.append(num_cart);
             }
             else{
@@ -102,9 +106,19 @@ class ViewController: UIViewController {
     
     func updateView (){
         act_num_lb.text = numToString(num: numActual);
-        left_num_lb.text = numToString(num: mazoI[0]);
+        if mazoI.count != 0{
+            left_num_lb.text = numToString(num: mazoI[0]);
+        }
+        else{
+            left_num_lb.text = numToString(num: 0);
+        }
         left_cards_lb.text = numToString(num: mazoI.count);
-        right_num_lb.text = numToString(num: mazoD[0]);
+        if mazoD.count != 0{
+            right_num_lb.text = numToString(num: mazoD[0]);
+        }
+        else{
+            right_num_lb.text = numToString(num: 0);
+        }
         right_cards_lb.text = numToString(num: mazoD.count);
     }
     

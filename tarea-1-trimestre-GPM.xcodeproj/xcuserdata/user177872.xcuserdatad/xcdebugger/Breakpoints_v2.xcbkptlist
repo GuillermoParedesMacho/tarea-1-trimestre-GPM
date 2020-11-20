@@ -17,7 +17,7 @@
             startingLineNumber = "102"
             endingLineNumber = "102"
             landmarkName = "genera_cartas(num_cart:cantidad:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -33,7 +33,7 @@
             startingLineNumber = "99"
             endingLineNumber = "99"
             landmarkName = "genera_cartas(num_cart:cantidad:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -49,14 +49,14 @@
             startingLineNumber = "103"
             endingLineNumber = "103"
             landmarkName = "genera_cartas(num_cart:cantidad:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E9A4CA11-6816-4391-ADDD-2593E76A4627"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tarea-1-trimestre-GPM/ViewController.swift"
@@ -72,7 +72,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "232E29EE-C08D-49E2-B372-26941AA10389"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tarea-1-trimestre-GPM/ViewController.swift"

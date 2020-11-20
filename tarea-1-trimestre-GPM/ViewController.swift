@@ -121,6 +121,7 @@ class ViewController: UIViewController {
     }
     
     func updateView (){
+        //actualizar la UI de la app
         act_num_lb.text = numToString(num: numActual);
         if mazoI.count != 0{
             left_num_lb.text = numToString(num: mazoI[0]);

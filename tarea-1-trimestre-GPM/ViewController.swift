@@ -51,8 +51,8 @@ class ViewController: UIViewController {
     func creamazos(){
         var baraja = creabarajas();
         while baraja.count > 0{
-            var max = baraja.count - 1;
-            var rnd = Int.random(in: 0...max);
+            let max = baraja.count - 1;
+            let rnd = Int.random(in: 0...max);
             if baraja.count % 2 == 0 {
                 mazoI.append(baraja[rnd]);
             }
@@ -112,9 +112,11 @@ class ViewController: UIViewController {
         updateView ();
         if numActual > 21 || numActual < 0{
             //condicion derrota
+            performSegue(withIdentifier: "Cond Derrota", sender: nil);
         }
         else if mazoD.count + mazoI.count == 0{
             //condicion victoria
+            performSegue(withIdentifier: "Cond Victoria", sender: nil);
         }
     }
     
@@ -138,7 +140,7 @@ class ViewController: UIViewController {
     
     //otras funciones
     func numToString (num: Int) -> String{
-        var sNumber = num as NSNumber;
+        let sNumber = num as NSNumber;
         return sNumber.stringValue;
     }
 
